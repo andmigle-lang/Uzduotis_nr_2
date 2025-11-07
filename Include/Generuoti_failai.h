@@ -82,9 +82,9 @@ template <typename T> void ar_naudoti_shrink_to_fit(list <T>& Grupe) {
 bool partition_palyginimas(const Studentas& s);
 
 template <typename T> void studentu_rusiavimas(T& Grupe, int k,
-	double& diff_rusiavimas1, double& diff_irasu_dalijimo1,
-	double& diff_irasymas_i_vargsiuku_faila1,
-	double& diff_irasymas_i_kietiaku_faila1, int i, int rusiavimo_strategija) {
+    double& diff_rusiavimas1, double& diff_irasu_dalijimo1,
+    double& diff_irasymas_i_vargsiuku_faila1,
+    double& diff_irasymas_i_kietiaku_faila1, int i, int rusiavimo_strategija, const string& spr) {
 
     int pasirinkimas = i;
 
@@ -116,15 +116,36 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
 
         auto start_irasymas_i_vargsiuku_faila = high_resolution_clock::now();
         stringstream vargsiukai_buffer, kietiakai_buffer;
-        vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 58; i++) {
-            vargsiukai_buffer << "-";
+        if (spr == "vidurki") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
-        vargsiukai_buffer << endl;
-        for (const auto& studentas : vargsiukai) {
-            vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        else if (spr == "mediana") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
         }
-
+        else if (spr == "abu") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" <<  endl;
+            for (int i = 0; i < 76; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal<< setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
         string failo_vardas1 = "vargsiukai" + to_string(k) + ".txt";
         ofstream vargsiukai_failas(failo_vardas1);
         vargsiukai_failas << vargsiukai_buffer.str();
@@ -134,14 +155,47 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
         diff_irasymas_i_vargsiuku_faila1 = diff_irasymas_i_vargsiuku_faila.count();
 
         auto start_irasymas_i_kietiaku_faila = high_resolution_clock::now();
-        kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+        /*kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
         for (int i = 0; i < 58; i++) {
             kietiakai_buffer << "-";
         }
         kietiakai_buffer << endl;
         for (const auto& studentas : kietiakai) {
             kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        }*/
+        if (spr == "vidurki") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : kietiakai) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
+        else if (spr == "mediana") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : kietiakai) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+        else if (spr == "abu") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 76; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : kietiakai) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+
+
+
 
         string failo_vardas2 = "kietiakai" + to_string(k) + ".txt";
         ofstream kietiakai_failas(failo_vardas2);
@@ -174,17 +228,39 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
         cout << k << " irasu dalijimo i dvi grupes laikas 2 strategija: " << diff_irasu_dalijimo.count() << " s" << endl;
         diff_irasu_dalijimo1 = diff_irasu_dalijimo.count();
 
-        
+
 
         auto start_irasymas_i_vargsiuku_faila = high_resolution_clock::now();
         stringstream vargsiukai_buffer, kietiakai_buffer;
-        vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 58; i++) {
-            vargsiukai_buffer << "-";
+        if (spr == "vidurki") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
-        vargsiukai_buffer << endl;
-        for (const auto& studentas : vargsiukai) {
-            vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        else if (spr == "mediana") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+        else if (spr == "abu") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 76; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
         }
 
         string failo_vardas1 = "vargsiukai" + to_string(k) + ".txt";
@@ -196,13 +272,35 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
         diff_irasymas_i_vargsiuku_faila1 = diff_irasymas_i_vargsiuku_faila.count();
 
         auto start_irasymas_i_kietiaku_faila = high_resolution_clock::now();
-        kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 58; i++) {
-            kietiakai_buffer << "-";
+        if (spr == "vidurki") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
-        kietiakai_buffer << endl;
-        for (const auto& studentas : Grupe) {
-            kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        else if (spr == "mediana") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+        else if (spr == "abu") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 76; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
         }
 
         string failo_vardas2 = "kietiakai" + to_string(k) + ".txt";
@@ -237,13 +335,35 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
 
         auto start_irasymas_i_vargsiuku_faila = high_resolution_clock::now();
         stringstream vargsiukai_buffer, kietiakai_buffer;
-        vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 58; i++) {
-            vargsiukai_buffer << "-";
+        if (spr == "vidurki") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
-        vargsiukai_buffer << endl;
-        for (const auto& studentas : vargsiukai) {
-            vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        else if (spr == "mediana") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+        else if (spr == "abu") {
+            vargsiukai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 76; i++) {
+                vargsiukai_buffer << "-";
+            }
+            vargsiukai_buffer << endl;
+            for (const auto& studentas : vargsiukai) {
+                vargsiukai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
         }
 
         string failo_vardas1 = "vargsiukai" + to_string(k) + ".txt";
@@ -255,13 +375,35 @@ template <typename T> void studentu_rusiavimas(T& Grupe, int k,
         diff_irasymas_i_vargsiuku_faila1 = diff_irasymas_i_vargsiuku_faila.count();
 
         auto start_irasymas_i_kietiaku_faila = high_resolution_clock::now();
-        kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 58; i++) {
-            kietiakai_buffer << "-";
+        if (spr == "vidurki") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Vid.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+            }
         }
-        kietiakai_buffer << endl;
-        for (const auto& studentas : Grupe) {
-            kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << endl;
+        else if (spr == "mediana") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 58; i++) {
+                vargsiukai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
+        }
+        else if (spr == "abu") {
+            kietiakai_buffer << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(18) << left << "Galutinis (Med.)" << setw(18) << left << "Galutinis (Med.)" << endl;
+            for (int i = 0; i < 76; i++) {
+                kietiakai_buffer << "-";
+            }
+            kietiakai_buffer << endl;
+            for (const auto& studentas : Grupe) {
+                kietiakai_buffer << setw(20) << left << studentas.var << setw(20) << left << studentas.pav << setw(18) << left << fixed << setprecision(2) << studentas.gal << setw(18) << left << fixed << setprecision(2) << studentas.med << endl;
+            }
         }
 
         string failo_vardas2 = "kietiakai" + to_string(k) + ".txt";
@@ -345,3 +487,4 @@ template <typename T> void skaitymas_is_generuoto_failo(T& Grupe, const string& 
     diff_skaitymas1 = diff_skaitymas.count();
     cout << "Duomenys nuskaityti is failo. Rastas studentu skaicius: " << Grupe.size() << endl;
 }
+
