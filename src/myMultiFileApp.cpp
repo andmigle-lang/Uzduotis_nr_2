@@ -11,6 +11,7 @@
 #include "Studentas_klase.h"
 #include "palyginimas_class.h"
 #include "Generuoti_failai_class.h"
+#include "Simple_class.h"
 
 using std::cin;
 using std::cout;
@@ -22,24 +23,201 @@ using std::chrono::duration;
 int main() {
     string versija_pr;
     int versija;
-    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2): ";
+    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3): ";
     while (true) {
         cin >> versija_pr;
         if (isNumber(versija_pr)) {
-            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2) {
+            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2 || stoi(versija_pr)==3) {
                 versija = stoi(versija_pr);
                 break;
+            }
+            else {
+                cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2 arba 3): ";
+            }
+        }
+        else {
+            cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2 arba 3): ";
+        }
+    }
+
+
+
+
+
+    if (versija == 3) {
+
+        string choice_good_pr;
+        int choice_good;
+        cout << "Ar tikrinti operator>> ir operator<< veikima (rasyti 1), ar rule of 3 (rasyti 2)? ";
+        while (true) {
+            cin >> choice_good_pr;
+            if (isNumber(choice_good_pr)) {
+                if (stoi(choice_good_pr) == 1 || stoi(choice_good_pr) == 2) {
+                    choice_good = stoi(choice_good_pr);
+                    break;
+                }
+                else {
+                    cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+                }
             }
             else {
                 cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
             }
         }
-        else {
-            cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+
+
+        if (choice_good == 2) {
+            Studentas_klase s1;
+            std::cout << "Iveskite pirmo studento duomenis:" << std::endl;
+            std::cin >> s1;
+
+            std::cout << "\nOriginalus studentas (s1): " << s1 << std::endl;
+
+            //Kopijavimo konstruktorius
+            Studentas_klase s2(s1);
+            std::cout << "\nKopijuotas studentas (s2): " << s2 << std::endl;
+
+            //Kopijavimo priskirties operatorius
+            Studentas_klase s3;
+            std::cout << "\nIveskite dar viena studenta (s3):" << std::endl;
+            std::cin >> s3;
+
+            std::cout << "\nPries priskyrima studentas (s3): " << s3 << std::endl;
+            s3 = s1;
+            std::cout << "Po priskyrimo studentas (s3): " << s3 << std::endl;
+        }
+
+
+
+
+        else if (choice_good == 1) {
+            string pasirink_pr;
+            int pasirink;
+            cout << "Ar norite dirbti su vektoriais (rasyti 1), ar list'ais (raysti 2): ";
+            while (true) {
+                cin >> pasirink_pr;
+                if (isNumber(pasirink_pr)) {
+                    if (stoi(pasirink_pr) == 1 || stoi(pasirink_pr) == 2) {
+                        pasirink = stoi(pasirink_pr);
+                        break;
+                    }
+                    else {
+                        cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+                    }
+                }
+                else {
+                    cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+                }
+            }
+            vector <Studentas_klase> Grupe_vector;
+            list <Studentas_klase> Grupe_list;
+            string pasirinkimas_pries_pr;
+            int pasirinkimas_pries;
+            cout << "Pasirinkite, ar norite, kad duomenys butu skaitomi is studentai.txt failo (rasyti 1), ar ne (rasyti 2): ";
+            while (true) {
+                cin >> pasirinkimas_pries_pr;
+                if (isNumber(pasirinkimas_pries_pr)) {
+                    if (stoi(pasirinkimas_pries_pr) == 1 || stoi(pasirinkimas_pries_pr) == 2) {
+                        pasirinkimas_pries = stoi(pasirinkimas_pries_pr);
+                        break;
+                    }
+                    else {
+                        cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+                    }
+                }
+                else {
+                    cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
+                }
+            }
+            if (pasirinkimas_pries == 1) {
+                if (pasirink == 1) {
+                    skaitymas_class(Grupe_vector);
+                }
+                else {
+                    skaitymas_class(Grupe_list);
+                }
+            }
+            else {
+                cout << "Kiek studentu grupeje? ";
+                string m_pr;
+                int m;
+                while (true) {
+                    cin >> m_pr;
+                    if (isNumber(m_pr)) {
+                        if (stoi(m_pr) >= 0) {
+                            m = stoi(m_pr);
+                            break;
+                        }
+                        else {
+                            cout << "Ivedete neteisinga duomeni (galima ivesti tik sveikaji skaiciu, nemazesni uz 0). Kiek studentu grupeje? ";
+                        }
+                    }
+                    else {
+                        cout << "Ivedete neteisinga duomeni (galima ivesti tik sveikaji skaiciu, nemazesni uz 0). Kiek studentu grupeje? ";
+                    }
+                }
+                if (pasirink == 1) Grupe_vector.reserve(m);
+                for (auto z = 0; z < m; z++) {
+                    if (pasirink == 1) {
+                        Grupe_vector.push_back(Stud_iv_class(z + 1));
+                    }
+                    else {
+                        Grupe_list.push_back(Stud_iv_class(z + 1));
+                    }
+                }
+            }
+            if (pasirink == 1) {
+                sort(Grupe_vector.begin(), Grupe_vector.end(), palyginimas_vardas_class);
+            }
+            else {
+                Grupe_list.sort(palyginimas_vardas_class);
+            }
+
+
+            string out_choice_pr;
+            int out_choice;
+            cout << "Ar norite isvesti i ekrana (rasyti 1) ar i faila (rasyti 2)? ";
+            while (true) {
+                cin >> out_choice_pr;
+                if (isNumber(out_choice_pr)) {
+                    out_choice = stoi(out_choice_pr);
+                    if (out_choice == 1 || out_choice == 2) {
+                        break;
+                    }
+                    else {
+                        cout << "Neteisinga ivestis. Iveskite 1 arba 2: ";
+                    }
+                }
+                else {
+                    cout << "Neteisinga ivestis. Iveskite 1 arba 2: ";
+                }
+            }
+
+            if (out_choice == 1) {
+                if (pasirink == 1) {
+                    for (auto& s : Grupe_vector) cout << s << endl;
+                }
+                else {
+                    for (auto& s : Grupe_list) cout << s << endl;
+                }
+            }
+            else {
+                if (pasirink == 1) rasymas_class(Grupe_vector);
+                else rasymas_class(Grupe_list);
+                cout << "Rezultatai issaugoti faile 'rezultatai.txt'" << endl;
+            }
         }
     }
 
-    if (versija == 2) {
+
+
+
+
+
+
+
+
+    else if (versija == 2) {
         vector<int> dydziai = { 100000, 1000000 };
         vector<double> vid_skaitymas(dydziai.size(), 0.0);
         vector<double> vid_rusiavimas(dydziai.size(), 0.0);
@@ -149,8 +327,8 @@ int main() {
 
                 skaitymas_is_generuoto_failo_class(Grupe1, input_file, diff_skaitymas1);
                 studentu_rusiavimas_class(Grupe1, size, diff_rusiavimas1, diff_irasu_dalijimo1,
-                         diff_irasymas_i_vargsiuku_faila1, diff_irasymas_i_kietiaku_faila1,
-                         pasirinkimas, 3, spr);
+                    diff_irasymas_i_vargsiuku_faila1, diff_irasymas_i_kietiaku_faila1,
+                    pasirinkimas, 3, spr);
 
                 vid_skaitymas[i] += diff_skaitymas1;
                 vid_rusiavimas[i] += diff_rusiavimas1;
