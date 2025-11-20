@@ -40,10 +40,6 @@ int main() {
         }
     }
 
-
-
-
-
     if (versija == 3) {
 
         string choice_good_pr;
@@ -65,30 +61,26 @@ int main() {
             }
         }
 
-
         if (choice_good == 2) {
             Studentas_klase s1;
-            std::cout << "Iveskite pirmo studento duomenis:" << std::endl;
-            std::cin >> s1;
+            cout << "Iveskite pirmo studento duomenis:" << endl;
+            cin >> s1;
 
-            std::cout << "\nOriginalus studentas (s1): " << s1 << std::endl;
+            cout << "\nOriginalus studentas (s1): " << s1 << endl;
 
             //Kopijavimo konstruktorius
             Studentas_klase s2(s1);
-            std::cout << "\nKopijuotas studentas (s2): " << s2 << std::endl;
+            cout << "\nKopijuotas studentas (s2): " << s2 << endl;
 
             //Kopijavimo priskirties operatorius
             Studentas_klase s3;
-            std::cout << "\nIveskite dar viena studenta (s3):" << std::endl;
-            std::cin >> s3;
+            cout << "\nIveskite dar viena studenta (s3):" << endl;
+            cin >> s3;
 
-            std::cout << "\nPries priskyrima studentas (s3): " << s3 << std::endl;
+            cout << "\nPries priskyrima studentas (s3): " << s3 << endl;
             s3 = s1;
-            std::cout << "Po priskyrimo studentas (s3): " << s3 << std::endl;
+            cout << "Po priskyrimo studentas (s3): " << s3 << endl;
         }
-
-
-
 
         else if (choice_good == 1) {
             string pasirink_pr;
@@ -173,7 +165,6 @@ int main() {
                 Grupe_list.sort(palyginimas_vardas_class);
             }
 
-
             string out_choice_pr;
             int out_choice;
             cout << "Ar norite isvesti i ekrana (rasyti 1) ar i faila (rasyti 2)? ";
@@ -208,14 +199,6 @@ int main() {
             }
         }
     }
-
-
-
-
-
-
-
-
 
     else if (versija == 2) {
         vector<int> dydziai = { 100000, 1000000 };
