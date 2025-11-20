@@ -1,4 +1,9 @@
 <pre>
+v1.2:
+  1) Rule of 3: sukurtas destruktorius (~Studentas_klase();), kopijavimo konstruktorius (Studentas_klase(const Studentas_klase& s);) ir kopijavimo priskirties operatorius (Studentas_klase& operator=(const Studentas_klase& s);). Realizavimas yra Studentas_klase.cpp faile;
+  2) operator<< ir operator>> realizavimas: 
+  
+  
 v1.1 tyrimas: kaip veikia programa v1.1 su skirtingais optimizavimo flag'ais.
 1 Lentelė. Struct ir Class efektyvumo tyrimas geriausia (3) strategija su vektoriais - vidutinis duomenų skaitymo iš failų greitis (vidurkiai iš 3 iteracijų)
 ---------------------------------------------------------------------------------------------------------------------------
