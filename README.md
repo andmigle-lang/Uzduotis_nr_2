@@ -1,8 +1,7 @@
 <pre>
 v1.2:
   1) Rule of 3: sukurtas destruktorius (~Studentas_klase();), kopijavimo konstruktorius (Studentas_klase(const Studentas_klase& s);) ir kopijavimo priskirties operatorius (Studentas_klase& operator=(const Studentas_klase& s);). Realizavimas yra Studentas_klase.cpp faile;
-  2) operator<< ir operator>> realizavimas: 
-  
+  2) operator<< ir operator>> realizavimas: operatoriai realizuoti kaip klasės friend funkcijos, operator<< realizuotas išvedimui į failą ir į ekraną pačiame operatoriuje (naudojant if statement, kad atskirtume, ar vedame į failą, ar į konsolę (if (&out == &std::cout)). Kintamieji įvedami į pačią klasę be temp. operator>> realizuotas įvedimui iš failo ir iš konsolės (taip pat naudojant if (if (&in == &std::cin)). Tada jei įvedama iš konsolės, pačioje operatoriaus funkcijoje suskaičiuojamos galutinės reikšmės (tiek įvedant iš random generuotų, tiek iš vartotojo įvestų studentų pažymių). Jei įvedama iš failo, tai naudojama s.skaityk_studenta_class(in);, kuri pati nuskaito failą (tai member funkcija). Pabaigoje kiekvieno operatoriaus grąžinamas stream'as (operator>> - in, operator<< - out). 
   
 v1.1 tyrimas: kaip veikia programa v1.1 su skirtingais optimizavimo flag'ais.
 1 Lentelė. Struct ir Class efektyvumo tyrimas geriausia (3) strategija su vektoriais - vidutinis duomenų skaitymo iš failų greitis (vidurkiai iš 3 iteracijų)
