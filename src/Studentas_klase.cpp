@@ -18,6 +18,10 @@ using std::setw;
 using std::setprecision;
 using std::left;
 
+Zmogus::Zmogus() 
+    : var_(""), pav_("") {
+}
+
 Studentas_klase::Studentas_klase()
     : var_(""), pav_(""), egz_(0), gal_(0.0), med_(0.0) {
 }
@@ -219,3 +223,4 @@ std::ostream& operator<<(std::ostream& out, const Studentas_klase& s) {
     }
     return out;
 }
+
