@@ -1,4 +1,63 @@
 <pre>
+v1.5:
+  Sukurta bazinė klasė Zmogus, kurioje saugomas vardas var_ ir pavardė pav_. Iš bazinės klasės išvestine klase padaryta Studentas_klase klasė. Programa nesikompiliuoja, kai nuimamas komentaras nuo v1.4 testavimo dalies main'e (t.y. bandomas sukurti Zmogus klasės objektas) ir errors dalyje gauname klaidą: "Error	C2259	'Zmogus': cannot instantiate abstract class	v1.5", tai įrodo, kad Zmogus klasė yra abstrakti (joje getter'ių ir skaitymo funkcijos padarytos abstrakčios). Tikrinamas kopijavimo konstruktorius ir kopijavimo prieskyros operatorius veikia teisingai (žr. testavimo išvestį apačioje). Destruktorių tikrinant kaip funkciją ir išvedant objektą į ekraną matoma, kad laukai tušti. Kai programa išeina už scope, destruktorius automatiškai suveikia (destruktoriui, kopijavimo konstruktorius ir kopijavimo prieskyros operatorius padaryti su išvedimo sakiniais).
+
+  Programos testavimo išvestis (kai testuojama rule of three):
+    Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3), ar su v1.5 versija (rasyti 4): 3
+    Ar tikrinti operator>> ir operator<< veikima (rasyti 1), ar rule of 3 (rasyti 2)? 2
+    Iveskite pirmo studento duomenis (s1):
+    Ar siam studentui ivesite rankiniu budu (rasyti 1), ar generuosite atsitiktinai (rasyti 2): 2
+    Vardas: w
+    Pavarde: q
+    Atsitiktinai generuojamu pazymiu skaicius (gali buti nuo 0 iki 20 pazymiu): 5
+    Isvedami atsitiktinai generuojami pazymiai:
+    Generuotas pazymys nr. 1: 8
+    Generuotas pazymys nr. 2: 10
+    Generuotas pazymys nr. 3: 3
+    Generuotas pazymys nr. 4: 3
+    Generuotas pazymys nr. 5: 8
+    Isvedamas sugeneruotas egzamino pazymys: 9
+    
+    Originalus studentas (s1): w q Pazymiai: [8 10 3 3 8] egzaminas : 9 | galutinis (Vid.): 7.96 | galutinis (Med.): 8.6
+    Kopijavimo konstruktorius sukurtas zmogui w q
+    Kopijavimo kontruktorius sukurtas studentui w q
+    
+    Kopijuotas studentas (s2): w q Pazymiai: [8 10 3 3 8] egzaminas : 9 | galutinis (Vid.): 7.96 | galutinis (Med.): 8.6
+    
+    Iveskite dar viena studenta (s3):
+    Ar siam studentui ivesite rankiniu budu (rasyti 1), ar generuosite atsitiktinai (rasyti 2): 2
+    Vardas: i
+    Pavarde: t
+    Atsitiktinai generuojamu pazymiu skaicius (gali buti nuo 0 iki 20 pazymiu): 11
+    Isvedami atsitiktinai generuojami pazymiai:
+    Generuotas pazymys nr. 1: 9
+    Generuotas pazymys nr. 2: 5
+    Generuotas pazymys nr. 3: 2
+    Generuotas pazymys nr. 4: 1
+    Generuotas pazymys nr. 5: 6
+    Generuotas pazymys nr. 6: 1
+    Generuotas pazymys nr. 7: 1
+    Generuotas pazymys nr. 8: 2
+    Generuotas pazymys nr. 9: 6
+    Generuotas pazymys nr. 10: 2
+    Generuotas pazymys nr. 11: 2
+    Isvedamas sugeneruotas egzamino pazymys: 9
+    
+    Pries priskyrima studentas (s3): i t Pazymiai: [9 5 2 1 6 1 1 2 6 2 2] egzaminas : 9 | galutinis (Vid.): 6.74545 | galutinis (Med.): 6.2
+    Kopijavimo priskirties operatorius sukurtas studentui w q
+    Po priskyrimo studentas (s3): w q Pazymiai: [8 10 3 3 8] egzaminas : 9 | galutinis (Vid.): 7.96 | galutinis (Med.): 8.6
+    Destruktorius sukurtas studentui w q
+    Destruktorius sukurtas zmogui w q
+    Isvedamas studentas (s1), kad butu patikrinta, ar veikia desktruktorius:
+     [] egzaminas : 0 | galutinis (Vid.): 0 | galutinis (Med.): 0
+    Destruktorius sukurtas studentui w q
+    Destruktorius sukurtas zmogui w q
+    Destruktorius sukurtas studentui w q
+    Destruktorius sukurtas zmogui w q
+    Destruktorius sukurtas studentui
+    Destruktorius sukurtas zmogui
+
+                                         
 v1.2:
   1) Rule of 3: sukurtas destruktorius (~Studentas_klase();), kopijavimo konstruktorius (Studentas_klase(const Studentas_klase& s);) ir kopijavimo priskirties operatorius 
   (Studentas_klase& operator=(const Studentas_klase& s);). Realizavimas yra Studentas_klase.cpp faile, paskui naudojama main'e;
