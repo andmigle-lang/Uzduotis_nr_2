@@ -13,6 +13,14 @@ class Zmogus {
 protected:
     string var_;
     string pav_;
+public:
+    Zmogus();
+    /*Zmogus(istream& is);*/
+
+    virtual inline string vardas() const = 0;
+    virtual inline string pavarde() const = 0;
+
+    virtual istream& skaityk_studenta_class(istream& is) = 0;
 }
 
 class Studentas_klase {
@@ -51,5 +59,6 @@ public:
     friend std::istream& operator>>(std::istream& in, Studentas_klase& s);
     friend std::ostream& operator<<(std::ostream& out, const Studentas_klase& s);
 };
+
 
 
