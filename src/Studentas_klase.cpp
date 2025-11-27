@@ -18,15 +18,41 @@ using std::setw;
 using std::setprecision;
 using std::left;
 
+
 Zmogus::Zmogus() 
     : var_(""), pav_("") {
 }
 
-Studentas_klase::Studentas_klase()
-    : var_(""), pav_(""), egz_(0), gal_(0.0), med_(0.0) {
+//Zmogus::Zmogus(istream& is) {
+//    skaityk_zmogu(is);
+//}
+
+Zmogus::~Zmogus() {
+    std::cout << "Destruktorius sukurtas zmogui " << var_ << " " << pav_ << std::endl;
+    var_.clear();
+    pav_.clear();
 }
 
-Studentas_klase::Studentas_klase(istream& is) : var_(""), pav_(""), egz_(0), gal_(0.0), med_(0.0) {
+Zmogus::Zmogus(const Zmogus& z) : var_(z.var_), pav_(z.pav_) {
+    std::cout << "Kopijavimo konstruktorius sukurtas zmogui " << var_ << " " << pav_ << std::endl;
+}
+
+Zmogus& Zmogus::operator=(const Zmogus& z) {
+    if (this == &z) return *this;
+    var_ = z.var_;
+    pav_ = z.pav_;
+    std::cout << "Kopijavimo priskirties operatorius sukurtas zmogui " << z.var_ << " " << z.pav_ << std::endl;
+    return *this;
+}
+
+
+
+
+Studentas_klase::Studentas_klase()
+    : paz_(), egz_(0), gal_(0.0), med_(0.0) {
+}
+
+Studentas_klase::Studentas_klase(istream& is) : paz_(), egz_(0), gal_(0.0), med_(0.0) {
     skaityk_studenta_class(is);
 }
 
@@ -82,9 +108,9 @@ void Studentas_klase::skaiciuok_galutinius() {
 }
 
 Studentas_klase::~Studentas_klase() {
-    std::cout << "Destruktorius sukurtas studentui  " << var_ << " " << pav_ << std::endl;
-    var_.clear();
-    pav_.clear();
+    std::cout << "Destruktorius sukurtas studentui " << var_ << " " << pav_ << std::endl;
+    /*var_.clear();
+    pav_.clear();*/
     paz_.clear();
     egz_ = 0;
     gal_ = 0;
@@ -92,8 +118,8 @@ Studentas_klase::~Studentas_klase() {
 }
 
 Studentas_klase::Studentas_klase(const Studentas_klase& s)
-    : var_(s.var_), pav_(s.pav_), paz_(s.paz_), egz_(s.egz_), gal_(s.gal_), med_(s.med_) {
-    std::cout << "Kopijavimo kontruktorius sukurtas studentui  " << s.var_ << " " << s.pav_ << std::endl;
+    : Zmogus(s), paz_(s.paz_), egz_(s.egz_), gal_(s.gal_), med_(s.med_) {
+    std::cout << "Kopijavimo kontruktorius sukurtas studentui " << s.var_ << " " << s.pav_ << std::endl;
 }
 
 Studentas_klase& Studentas_klase::operator=(const Studentas_klase& s) {
@@ -104,7 +130,7 @@ Studentas_klase& Studentas_klase::operator=(const Studentas_klase& s) {
     egz_ = s.egz_;
     gal_ = s.gal_;
     med_ = s.med_;
-    std::cout<<"Kopijavimo priskirties operatorius sukurtas studentui " << s.var_ << " " << s.pav_ << std::endl;
+    std::cout << "Kopijavimo priskirties operatorius sukurtas studentui " << s.var_ << " " << s.pav_ << std::endl;
     return *this;
 }
 
@@ -129,7 +155,7 @@ std::istream& operator>>(std::istream& in, Studentas_klase& s) {
                 cout << "Ivedete neteisinga duomeni (galima vesti tik 1 arba 2): ";
             }
         }
-        
+
         if (pasirinkimas == 1) {
             cout << "Vardas: "; in >> s.var_;
             cout << "Pavarde: "; in >> s.pav_;
@@ -212,7 +238,7 @@ std::ostream& operator<<(std::ostream& out, const Studentas_klase& s) {
         out << " egzaminas : " << s.egz_;
         out << " | galutinis (Vid.): " << s.gal_;
         out << " | galutinis (Med.): " << s.med_;
-        
+
     }
     else {
         out << std::setw(20) << std::left << s.var_
@@ -223,4 +249,3 @@ std::ostream& operator<<(std::ostream& out, const Studentas_klase& s) {
     }
     return out;
 }
-
