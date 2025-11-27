@@ -23,23 +23,27 @@ using std::chrono::duration;
 int main() {
     string versija_pr;
     int versija;
-    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3): ";
+    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3), ar su v1.5 versija (rasyti 4): ";
     while (true) {
         cin >> versija_pr;
         if (isNumber(versija_pr)) {
-            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2 || stoi(versija_pr)==3) {
+            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2 || stoi(versija_pr) == 3||stoi(versija_pr)==4) {
                 versija = stoi(versija_pr);
                 break;
             }
             else {
-                cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2 arba 3): ";
+                cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3 arba 4): ";
             }
         }
         else {
-            cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2 arba 3): ";
+            cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3 arba 4): ";
         }
     }
-
+    if (versija == 4) {
+        cout << "Tikrinama v1.4: "<<endl;
+        //Tikrinama, ar galima sukurti objekta z1. Atkomentuoti ir bandyti sukompiliuoti, kad parodytume, kad neveikia
+        //Zmogus z1;
+    }
     if (versija == 3) {
 
         string choice_good_pr;
@@ -63,7 +67,7 @@ int main() {
 
         if (choice_good == 2) {
             Studentas_klase s1;
-            cout << "Iveskite pirmo studento duomenis:" << endl;
+            cout << "Iveskite pirmo studento duomenis (s1):" << endl;
             cin >> s1;
 
             cout << "\nOriginalus studentas (s1): " << s1 << endl;
@@ -80,6 +84,10 @@ int main() {
             cout << "\nPries priskyrima studentas (s3): " << s3 << endl;
             s3 = s1;
             cout << "Po priskyrimo studentas (s3): " << s3 << endl;
+
+            s1.~Studentas_klase();
+            cout << "Isvedamas studentas (s1), kad butu patikrinta, ar veikia desktruktorius: " << endl;
+            cout << s1 << endl;
         }
 
         else if (choice_good == 1) {
