@@ -1,6 +1,12 @@
 <pre>
 v1.5:
-  Sukurta bazinė klasė Zmogus, kurioje saugomas vardas var_ ir pavardė pav_. Iš bazinės klasės išvestine klase padaryta Studentas_klase klasė. Programa nesikompiliuoja, kai nuimamas komentaras nuo v1.4 testavimo dalies main'e (t.y. bandomas sukurti Zmogus klasės objektas) ir errors dalyje gauname klaidą: "Error	C2259	'Zmogus': cannot instantiate abstract class	v1.5", tai įrodo, kad Zmogus klasė yra abstrakti (joje getter'ių ir skaitymo funkcijos padarytos abstrakčios). Tikrinamas kopijavimo konstruktorius ir kopijavimo prieskyros operatorius veikia teisingai (žr. testavimo išvestį apačioje). Destruktorių tikrinant kaip funkciją ir išvedant objektą į ekraną matoma, kad laukai tušti. Kai programa išeina už scope, destruktorius automatiškai suveikia (destruktoriui, kopijavimo konstruktorius ir kopijavimo prieskyros operatorius padaryti su išvedimo sakiniais).
+  Sukurta bazinė klasė Zmogus, kurioje saugomas vardas var_ ir pavardė pav_. Iš bazinės klasės išvestine klase padaryta Studentas_klase klasė. 
+  Programa nesikompiliuoja, kai nuimamas komentaras nuo v1.4 testavimo dalies main'e (t.y. bandomas sukurti Zmogus klasės objektas) ir errors 
+  dalyje gauname klaidą: "Error	C2259	'Zmogus': cannot instantiate abstract class	v1.5", tai įrodo, kad Zmogus klasė yra abstrakti (joje getter'ių 
+  ir skaitymo funkcijos padarytos abstrakčios). Tikrinamas kopijavimo konstruktorius ir kopijavimo prieskyros operatorius veikia teisingai (žr.
+  testavimo išvestį apačioje). Destruktorių tikrinant kaip funkciją ir išvedant objektą į ekraną matoma, kad laukai tušti. Kai programa išeina už
+  scope, destruktorius automatiškai suveikia (destruktoriui, kopijavimo konstruktorius ir kopijavimo prieskyros operatorius padaryti su išvedimo 
+  sakiniais).
 
   Programos testavimo išvestis (kai testuojama rule of three):
     Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3), ar su v1.5 versija (rasyti 4): 3
