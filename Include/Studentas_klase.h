@@ -21,18 +21,16 @@ public:
     virtual inline string pavarde() const = 0;
 
     virtual istream& skaityk_studenta_class(istream& is) = 0;
-    
+
     virtual ~Zmogus();
 
-    //Implementuoti siuos metodus
     Zmogus(const Zmogus& z);
     Zmogus& operator=(const Zmogus& z);
-}
+};
 
-class Studentas_klase {
+
+class Studentas_klase : public Zmogus {
 private:
-    string var_;
-    string pav_;
     vector<int> paz_;
     int egz_;
     double gal_;
@@ -65,7 +63,4 @@ public:
     friend std::istream& operator>>(std::istream& in, Studentas_klase& s);
     friend std::ostream& operator<<(std::ostream& out, const Studentas_klase& s);
 };
-
-
-
 
