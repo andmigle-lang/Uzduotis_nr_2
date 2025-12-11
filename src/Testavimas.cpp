@@ -16,3 +16,12 @@ TEST_CASE("Default constructor", "[Default][Constructor]") {
     REQUIRE(stud.galutinis() == 0.0);
     REQUIRE(stud.mediana_galutinis() == 0.0);
 }
+
+TEST_CASE("Copy constructor", "[Copy][Constructor]") {
+    stringstream ss("Jonas Jonaitis 10 9 8");
+    Studentas_klase stud;
+    stud.skaityk_studenta_class(ss);
+
+    Studentas_klase KopijaStud(stud);
+    REQUIRE(KopijaStud == stud);
+}
