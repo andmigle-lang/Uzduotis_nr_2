@@ -25,3 +25,13 @@ TEST_CASE("Copy constructor", "[Copy][Constructor]") {
     Studentas_klase KopijaStud(stud);
     REQUIRE(KopijaStud == stud);
 }
+
+TEST_CASE("Copy Assignment operator", "[Copy][Assignment][Operator]") {
+    stringstream ss("Petras Petraitis 7 6 5");
+    Studentas_klase stud;
+    stud.skaityk_studenta_class(ss);
+
+    Studentas_klase KopijaStud;
+    KopijaStud = stud;
+    REQUIRE(KopijaStud == stud);
+}
