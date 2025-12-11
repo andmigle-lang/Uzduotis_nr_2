@@ -4,7 +4,7 @@ This project is licensed under the GNU General Public License v3.0.
 It also includes third-party code from Catch2, which is licensed under the Boost Software License 1.0.
 
 v2.0:
-  Panaudoti catch2 testai iš https://github.com/catchorg/Catch2/releases/tag/v2.13.10. Sukurti 4 testai Testavimas.cpp faile: TEST_CASE("Default constructor", "[Default][Constructor]"), TEST_CASE("Copy constructor", "[Copy][Constructor]"), TEST_CASE("Copy Assignment operator", "[Copy][Assignment][Operator]") ir TEST_CASE("Getters", "[Getters]").
+  Panaudoti catch2 testai iš https://github.com/catchorg/Catch2/releases/tag/v2.13.10. Sukurti 5 testai Testavimas.cpp faile: TEST_CASE("Default constructor", "[Default][Constructor]"), TEST_CASE("Copy constructor", "[Copy][Constructor]"), TEST_CASE("Copy Assignment operator", "[Copy][Assignment][Operator]"), TEST_CASE("Destructor" "[Destructor]") ir TEST_CASE("Getters", "[Getters]").
   
 v1.5:
   Sukurta bazinė klasė Zmogus, kurioje saugomas vardas var_ ir pavardė pav_. Iš bazinės klasės išvestine klase padaryta Studentas_klase klasė. 
