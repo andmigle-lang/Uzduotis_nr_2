@@ -13,6 +13,9 @@
 #include "Generuoti_failai_class.h"
 #include "Simple_class.h"
 
+#define CATCH_CONFIG_RUNNER
+#include "catch2/catch.hpp"
+
 using std::cin;
 using std::cout;
 using std::to_string;
