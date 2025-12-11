@@ -36,8 +36,22 @@ TEST_CASE("Copy Assignment operator", "[Copy][Assignment][Operator]") {
     REQUIRE(KopijaStud == stud);
 }
 
+TEST_CASE("Destructor" "[Destructor]") {
+    stringstream ss("Antanas Antanaitis 4 2 8 3");
+    Studentas_klase stud;
+    stud.skaityk_studenta_class(ss);
+
+	stud.~Studentas_klase();
+    REQUIRE(stud.vardas() == "");
+    REQUIRE(stud.pavarde() == "");
+    REQUIRE(stud.egzaminas() == 0);
+    REQUIRE(stud.pazymiai().size() == 0);
+    REQUIRE(stud.galutinis() == 0.0);
+    REQUIRE(stud.mediana_galutinis() == 0.0);
+}
+
 TEST_CASE("Getters", "[Getters]") {
-    std::stringstream ss("Ona Onaite 9 8 7 6");
+    stringstream ss("Ona Onaite 9 8 7 6");
     Studentas_klase stud;
     stud.skaityk_studenta_class(ss);
 
