@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Simple_class.h išeities tekstas</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Paieška',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Simple_class.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_simple__class_8h.html">Eiti į šio failo dokumentaciją.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_studentas__klase_8h.html">Studentas_klase.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="is__number_8h.html">is_number.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="mediana_8h.html">mediana.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using </span>std::cout;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">using </span>std::cin;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">using </span>std::endl;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">using </span>std::ofstream;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using </span>std::ifstream;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">using </span>std::fixed;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using </span>std::setprecision;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">using </span>std::left;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">using </span>std::right;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using </span>std::setw;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_class" href="class_studentas__klase.html">Studentas_klase</a> <a class="code hl_function" href="_simple__class_8h.html#acea8df0011637365d895f1555cee5fab">Stud_iv_class</a>(<span class="keywordtype">int</span> k);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_class" href="class_studentas__klase.html">Studentas_klase</a> <a class="code hl_function" href="_simple__class_8h.html#a0f151e5e68dd39cb966382f2c64b2ec2">Stud_iv_atsitiktinai_class</a>(<span class="keywordtype">int</span> k);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_simple__class_8h.html#a2798d3062bf77a2f30ea1db91b44262d">   26</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="_simple__class_8h.html#a2798d3062bf77a2f30ea1db91b44262d">skaitymas_class</a>(T&amp; Grupe) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">string</span> failo_vardas;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    ifstream F;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        cout &lt;&lt; <span class="stringliteral">&quot;Iveskite failo varda: &quot;</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        cin &gt;&gt; failo_vardas;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        F.open(failo_vardas);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (F) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordtype">string</span> pasirink;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                cout &lt;&lt; <span class="stringliteral">&quot;Failo nepavyko atidaryti. Ar norite bandyti dar karta (rasykite 1), ar norite uzbaigti programa (rasykite 2)? &quot;</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                cin &gt;&gt; pasirink;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keywordflow">if</span> (pasirink == <span class="stringliteral">&quot;1&quot;</span>) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pasirink == <span class="stringliteral">&quot;2&quot;</span>) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    exit(0);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    cout &lt;&lt; <span class="stringliteral">&quot;Neteisingas pasirinkimas. Bandykite dar karta.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">string</span> pavadinimai;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    getline(F, pavadinimai);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">while</span> (F.peek() != EOF) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="class_studentas__klase.html">Studentas_klase</a> Pirmas;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        F &gt;&gt; Pirmas;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Grupe.push_back(Pirmas);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    F.close();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    cout &lt;&lt; <span class="stringliteral">&quot;Duomenys nuskaityti is failo. Rastas studentu skaicius: &quot;</span> &lt;&lt; Grupe.size() &lt;&lt; endl;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="_simple__class_8h.html#a36f81f1a123dd160e8a575c37648be54">   64</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="_simple__class_8h.html#a36f81f1a123dd160e8a575c37648be54">rasymas_class</a>(T Grupe) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    ofstream R(<span class="stringliteral">&quot;rezultatai.txt&quot;</span>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!R) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        cout &lt;&lt; <span class="stringliteral">&quot;Klaida: Nepavyko sukurti arba atidaryti failo &#39;rezultatai.txt&#39;. Patikrinkite direktorija ir teises.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    R &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;Vardas&quot;</span> &lt;&lt; setw(20) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;Pavarde&quot;</span> &lt;&lt; setw(18) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;Galutinis (Vid.)&quot;</span> &lt;&lt; setw(18) &lt;&lt; left &lt;&lt; <span class="stringliteral">&quot;Galutinis (Med.)&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 76; i++) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        R &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    R &lt;&lt; endl;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> studentas : Grupe) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        R &lt;&lt; studentas;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    R.close();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+</div>
+<div class="ttc" id="a_simple__class_8h_html_a0f151e5e68dd39cb966382f2c64b2ec2"><div class="ttname"><a href="_simple__class_8h.html#a0f151e5e68dd39cb966382f2c64b2ec2">Stud_iv_atsitiktinai_class</a></div><div class="ttdeci">Studentas_klase Stud_iv_atsitiktinai_class(int k)</div><div class="ttdef"><b>Definition</b> Simple_class.cpp:23</div></div>
+<div class="ttc" id="a_simple__class_8h_html_a2798d3062bf77a2f30ea1db91b44262d"><div class="ttname"><a href="_simple__class_8h.html#a2798d3062bf77a2f30ea1db91b44262d">skaitymas_class</a></div><div class="ttdeci">void skaitymas_class(T &amp;Grupe)</div><div class="ttdef"><b>Definition</b> Simple_class.h:26</div></div>
+<div class="ttc" id="a_simple__class_8h_html_a36f81f1a123dd160e8a575c37648be54"><div class="ttname"><a href="_simple__class_8h.html#a36f81f1a123dd160e8a575c37648be54">rasymas_class</a></div><div class="ttdeci">void rasymas_class(T Grupe)</div><div class="ttdef"><b>Definition</b> Simple_class.h:64</div></div>
+<div class="ttc" id="a_simple__class_8h_html_acea8df0011637365d895f1555cee5fab"><div class="ttname"><a href="_simple__class_8h.html#acea8df0011637365d895f1555cee5fab">Stud_iv_class</a></div><div class="ttdeci">Studentas_klase Stud_iv_class(int k)</div><div class="ttdef"><b>Definition</b> Simple_class.cpp:17</div></div>
+<div class="ttc" id="a_studentas__klase_8h_html"><div class="ttname"><a href="_studentas__klase_8h.html">Studentas_klase.h</a></div></div>
+<div class="ttc" id="aclass_studentas__klase_html"><div class="ttname"><a href="class_studentas__klase.html">Studentas_klase</a></div><div class="ttdef"><b>Definition</b> Studentas_klase.h:32</div></div>
+<div class="ttc" id="ais__number_8h_html"><div class="ttname"><a href="is__number_8h.html">is_number.h</a></div></div>
+<div class="ttc" id="amediana_8h_html"><div class="ttname"><a href="mediana_8h.html">mediana.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Sugeneruota&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
