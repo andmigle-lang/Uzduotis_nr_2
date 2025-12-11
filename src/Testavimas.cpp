@@ -35,3 +35,16 @@ TEST_CASE("Copy Assignment operator", "[Copy][Assignment][Operator]") {
     KopijaStud = stud;
     REQUIRE(KopijaStud == stud);
 }
+
+TEST_CASE("Getters", "[Getters]") {
+    std::stringstream ss("Ona Onaite 9 8 7 6");
+    Studentas_klase stud;
+    stud.skaityk_studenta_class(ss);
+
+    REQUIRE(stud.vardas() == "Ona");
+    REQUIRE(stud.pavarde() == "Onaite");
+    REQUIRE(stud.egzaminas() == 6);   //Paskutinis pazymys yra egzaminas
+    REQUIRE(stud.pazymiai().size() == 3); //9,8 ir 7 yra pazymiai
+    REQUIRE(stud.galutinis() > 0.0);  //Suskaiciuotas vidurkio galutinis balas turi buti teigiamas
+    REQUIRE(stud.mediana_galutinis() > 0.0);  //Suskaiciuotas medianos galutinis balas turi buti teigiamas
+}
