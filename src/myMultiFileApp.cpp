@@ -1,6 +1,4 @@
 // Uzduotis_nr_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "palyginimas.h"
 #include "Generuoti_failai.h"
 #include "is_number.h"
@@ -23,25 +21,30 @@ using std::endl;
 using std::chrono::high_resolution_clock;
 using std::chrono::duration;
 
-int main() {
+int main(int argc, char* argv[]) {
     string versija_pr;
     int versija;
-    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3), ar su v1.5 versija (rasyti 4): ";
+    cout << "Ar norite dirbti su programa v1.0 versija (rasyti 1), ar su v1.1 versija (rasyti 2), ar su v1.2 versija (rasyti 3), ar su v1.5 versija (rasyti 4), ar su versija v2.0 (rasyti 5): ";
     while (true) {
         cin >> versija_pr;
         if (isNumber(versija_pr)) {
-            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2 || stoi(versija_pr) == 3||stoi(versija_pr)==4) {
+            if (stoi(versija_pr) == 1 || stoi(versija_pr) == 2 || stoi(versija_pr) == 3||stoi(versija_pr)==4 || stoi(versija_pr) == 5) {
                 versija = stoi(versija_pr);
                 break;
             }
             else {
-                cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3 arba 4): ";
+                cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3, 4 arba 5): ";
             }
         }
         else {
-            cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3 arba 4): ";
+            cout << "Ivedete neteisinga duomeni (galima vesti tik 1, 2, 3, 4 arba 5): ";
         }
     }
+    if (versija == 5) {
+        cout << "Testavimas su Catch2 testais"<<endl;
+        return Catch::Session().run(argc, argv);
+    }
+
     if (versija == 4) {
         cout << "Tikrinama v1.4: "<<endl;
         //Tikrinama, ar galima sukurti objekta z1. Atkomentuoti ir bandyti sukompiliuoti, kad parodytume, kad neveikia
@@ -721,3 +724,4 @@ int main() {
     }
     return 0;
 }
+
